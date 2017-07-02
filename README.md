@@ -87,12 +87,15 @@ class Singleton private constructor() {
   init { 
     ...
   }
-  private object Holder {
-    val INSTANCE = Singleton()
-  }
+  // 经过测试不需要 Holder 做延迟，另外 lazy 是线程安全的，不需要额外的加锁
+  //private object Holder {
+  //  val INSTANCE = Singleton()
+  //}
   companion object {
     val instance: Singleton by lazy {
-      Holder.INSTANCE
+      //Holder.INSTANCE
+      ...
+      Singleton()
     }
   }
 }
@@ -100,7 +103,7 @@ class Singleton private constructor() {
 
 Or
 
-```
+```koltin
 class Singleton private construtor() {
   init {
     ...
