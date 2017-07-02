@@ -103,7 +103,7 @@ class Singleton private constructor() {
 
 Or
 
-```koltin
+```kotlin
 class Singleton private construtor() {
   init {
     ...
